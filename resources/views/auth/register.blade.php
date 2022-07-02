@@ -21,17 +21,24 @@
     <link href="{{ asset('assets/back/css/lib/helper.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/back/css/style.css') }}" rel="stylesheet">
     <style>
+        body {
+            background-image: url("https://1.bp.blogspot.com/-nIi0jr3Uxso/X6IPalA_OVI/AAAAAAAAFQM/1CFHFgiUEZkIRLm5H6X23d7gmbrc-S0cACLcBGAsYHQ/s2048/InShot_20201104_091746479.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
     </style>
 </head>
 
-<body class="bg-primary">
+<body class="register">
     <div class="unix-login">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 col-lg-5">
                     <div class="login-content">
                         <div class="login-form">
-                            <h4>Regristasi</h4>
+                            <h4>Registrasi</h4>
 
                             @if (session('status'))
                                 <div class="row">
@@ -56,17 +63,10 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-6 col-md-6 col-lg-6">
+                                    <div class="col">
                                         <label>Email</label>
                                         <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
                                         @error('email')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                    <div class="col-6 col-md-6 col-lg-6">
-                                        <label>No. HP</label>
-                                        <input type="number" class="form-control @error('telp') is-invalid @enderror" name="telp" value="{{ old('telp') }}" required>
-                                        @error('telp')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
@@ -89,11 +89,11 @@
                                     </div>
                                 </div>
 
-                                <button class="btn btn-dark submit w-100 mt-4">DAFTAR</button>
+                                <button class="btn btn-success submit w-100 mt-4">DAFTAR</button>
                             </form>
 
                             <div class="text-center mt-3">
-                                <a class="text-dark" href="{{ route('login.index') }}">Sudah mempunyai akun ?</a>
+                                <a class="text-success" href="{{ route('login.index') }}">Sudah mempunyai akun ?</a>
                             </div>
                         </div>
                     </div>

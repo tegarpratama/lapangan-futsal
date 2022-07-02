@@ -21,10 +21,17 @@
     <link href="{{ asset('assets/back/css/lib/helper.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/back/css/style.css') }}" rel="stylesheet">
     <style>
+        body {
+            background-image: url("https://1.bp.blogspot.com/-nIi0jr3Uxso/X6IPalA_OVI/AAAAAAAAFQM/1CFHFgiUEZkIRLm5H6X23d7gmbrc-S0cACLcBGAsYHQ/s2048/InShot_20201104_091746479.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
     </style>
 </head>
 
-<body class="bg-primary" id="login">
+<body class="login" id="login">
 
     <div class="unix-login">
         <div class="container-fluid">
@@ -74,11 +81,11 @@
                                         </span>
                                     @enderror
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">MASUK</button>
+                                <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">MASUK</button>
                             </form>
 
                             <div class="text-center">
-                                <a class="text-primary" href="{{ route('register.index') }}">Belum mempunyai akun ?</a>
+                                <a class="text-success" href="{{ route('register.index') }}">Belum mempunyai akun ?</a>
                             </div>
                         </div>
                     </div>

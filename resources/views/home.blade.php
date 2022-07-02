@@ -29,7 +29,7 @@
             <div class="col">
                 <input type="hidden" name="lathidden" id="lathidden" >
                 <input type="hidden" name="lnghidden" id="lnghidden" >
-                <button class="btn btn-primary btn-block" type="submit">Simpan</button>
+                <button class="btn btn-success btn-block" type="submit">Simpan</button>
             </div>
         </div>
     </form>

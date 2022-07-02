@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\Hash;
-use App\Pelanggan;
+use App\User;
 use DB;
 
 class RegisterController extends Controller
@@ -18,8 +18,7 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'email' => 'required|unique:pelanggan,email',
-            'telp' => 'required|unique:pelanggan,telp',
+            'email' => 'required|unique:user,email',
             'password' => 'required|min:6',
             'password_confirm' => 'required|same:password'
         ]);
@@ -27,7 +26,7 @@ class RegisterController extends Controller
         $data = $request->except(['_token', 'password_confirm']);
         $data['password'] = Hash::make($request->password);
 
-        Pelanggan::create($data);
+        User::create($data);
 
         return redirect()->route('login.index')->with('success', 'Regristasi berhasil, silahkan login.');
     }

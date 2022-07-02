@@ -17,7 +17,6 @@ class CreateLokasiUserTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('lapangan_futsal_id');
-            $table->double('jarak');
         });
     }
 

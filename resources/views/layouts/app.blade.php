@@ -12,8 +12,9 @@
 </head>
 <body>
 
+@include('includes.front.navbar')
 
-<div class="container">
+<div class="container mb-5">
     @yield('content')
 </div>
 
