@@ -50,10 +50,10 @@
 
                 <div class="col-4 mb-3">
                     <div class="card">
-                        @if ($f->gambar == null)
-                            <img src="{{ url('/assets/front/img/sample.jpg') }}" class="image-card">
+                        @if (count($f->gambar) > 0)
+                        <img src="{{ url('storage/' . $f->gambar[0]->gambar) }}" class="image-card">
                         @else
-                            <img src="{{ url('storage/' . $f->gambar) }}" class="image-card">
+                        <img src="{{ url('/assets/front/img/sample.jpg') }}" class="image-card">
                         @endif
                         <div class="card-body">
                         <h5 class="card-title">({{ $char }}) {{ $f->nama }}</h5>

@@ -25,23 +25,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Harga per jam</label>
-                                <input type="number" class="form-control @error('harga') is-invalid @enderror" name="harga" value="{{ old('harga') ? old('harga') : $futsal->harga }}">
+                                <input type="text" class="form-control @error('harga') is-invalid @enderror" name="harga" value="{{ old('harga') ? old('harga') : $futsal->harga }}">
                                 @error('harga')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label>Foto</label>
-                                @if ($futsal->gambar)
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <img src="{{ url('storage/' . $futsal->gambar) }}" class="img-fluid">
-                                        </div>
-                                    </div>
-                                    <br>
-                                @endif
-                                <input type="file" class="form-control-file" id="gambar" name="gambar">
-                                @error('gambar')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
@@ -49,6 +34,37 @@
                                 <label>Jam Operasional</label>
                                 <textarea name="jam_operasional" id="" cols="60" rows="50" class="form-control" style="height: 200px">{{ old('jam_operasional') ? old('jam_operasional') : $futsal->jam_operasional }}</textarea>
                                 @error('jam_operasional')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Fasilitas</label>
+                                <textarea name="fasilitas" id="" cols="60" rows="50" class="form-control" style="height: 200px">{{ old('fasilitas') ? old('fasilitas') : $futsal->fasilitas }}</textarea>
+                                @error('fasilitas')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Kontak</label>
+                                <input type="text" class="form-control @error('kontak') is-invalid @enderror" name="kontak" value="{{ old('kontak') ? old('kontak') : $futsal->kontak }}">
+                                @error('kontak')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Foto</label>
+                                @if ($futsal->gambar)
+                                    <div class="row">
+                                        @foreach ($futsal->gambar as $g)
+                                            <div class="col-4">
+                                                <img src="{{ url('storage/' . $g->gambar) }}" class="img-fluid">
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <br>
+                                @endif
+                                <input type="file" class="form-control-file" id="gambar" name="gambar[]" multiple>
+                                @error('gambar')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>

@@ -14,4 +14,9 @@ class LapanganFutsal extends Model
     {
         return $this->hasMany(LokasiUser::class, 'lapangan_futsal_id', 'id');
     }
+
+    public function gambar()
+    {
+        return $this->hasMany(GambarLapanganFutsal::class, 'lapangan_futsal_id', 'id');
+    }
 }

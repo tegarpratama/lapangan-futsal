@@ -51,11 +51,24 @@
                                 </td>
                             </tr>
                             <tr>
+                                <th>Fasilitas</th>
+                                <td class="text-left">
+                                    @foreach ($fasilitas as $f)
+                                        {{ $f }}
+                                        <br>
+                                    @endforeach
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Kontak</th>
+                                <td class="text-left">{{ $futsal->kontak }}</td>
+                            </tr>
+                            <tr>
                                 <th>Foto</th>
                                 <td style="width: 80%">
-                                    @if ($futsal->gambar)
-                                        <img src="{{ url('storage/' . $futsal->gambar) }}" class="img-fluid">
-                                    @endif
+                                    @foreach ($futsal->gambar as $g)
+                                        <img src="{{ url('storage/' . $g->gambar) }}" class="img-fluid">
+                                    @endforeach
                                 </td>
                             </tr>
                         </table>

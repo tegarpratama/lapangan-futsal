@@ -302,9 +302,16 @@ class HomeController extends Controller
         $loc = User::find(auth()->guard('user')->user()->id);
         $futsal = DB::table('lapangan_futsal')
             ->join('lokasi_user', 'lapangan_futsal.id', 'lokasi_user.lapangan_futsal_id')
-            ->select('lapangan_futsal.latitude', 'lapangan_futsal.longitude', 'lapangan_futsal.gambar', 'lapangan_futsal.nama', 'lapangan_futsal.id','lapangan_futsal.alamat')
+            ->select('lapangan_futsal.latitude', 'lapangan_futsal.longitude', 'lapangan_futsal.nama', 'lapangan_futsal.id','lapangan_futsal.alamat')
             ->where('lokasi_user.user_id', auth()->guard('user')->user()->id)
             ->get();
+
+        $i = 0;
+        foreach($futsal as $f) {
+            $gambar = DB::table('gambar_lapangan_futsal')->select('gambar')->where('lapangan_futsal_id', $f->id)->get();
+            $futsal[$i]->gambar = $gambar;
+            $i++;
+        }
 
         return view('hasil', [
             'best' => $bestRute,
@@ -317,10 +324,19 @@ class HomeController extends Controller
     {
         $futsal = DB::table('lapangan_futsal')->where('id', $id)->first();
         $operasional = explode(PHP_EOL, $futsal->jam_operasional);
+        $fasilitas = explode(PHP_EOL, $futsal->fasilitas);
+
+        $i = 0;
+        foreach($futsal as $f) {
+            $gambar = DB::table('gambar_lapangan_futsal')->select('gambar')->where('lapangan_futsal_id', $id)->get();
+            $futsal->gambar = $gambar;
+            $i++;
+        }
 
         return view('detail', [
             'futsal' => $futsal,
-            'jam' => $operasional
+            'jam' => $operasional,
+            'fasilitas' => $fasilitas
         ]);
     }
 

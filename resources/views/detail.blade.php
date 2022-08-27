@@ -14,10 +14,16 @@
     <div class="portfolio-details-container mt-3">
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12">
-                @if ($futsal->gambar == null)
-                    <img src="{{ url('/assets/front/img/sample.jpg') }}" class="img-fluid">
+                @if (count($futsal->gambar) > 0)
+                        <div class="row d-flex justify-content-center">
+                            @foreach ($futsal->gambar as $g)
+                                <div class="col-12 mb-2">
+                                    <img src="{{ url('storage/' . $g->gambar) }}" class="img-fluid mx-auto d-block" style="width: 60%">
+                                </div>
+                            @endforeach
+                        </div>
                 @else
-                    <img src="{{ url('storage/' . $futsal->gambar) }}" class="img-fluid">
+                <img src="{{ url('/assets/front/img/sample.jpg') }}" class="img-fluid">
                 @endif
             </div>
         </div>
@@ -67,6 +73,19 @@
                                 <br>
                             @endforeach
                         </td>
+                    </tr>
+                    <tr>
+                        <th>Fasilitas</th>
+                        <td class="text-left">
+                            @foreach ($fasilitas as $j)
+                                {{ $j }}
+                                <br>
+                            @endforeach
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Kontak</th>
+                        <td class="text-left">{{ $futsal->kontak }}</td>
                     </tr>
                 </table>
             </div>
