@@ -61,7 +61,7 @@
                             @if ($futsal->harga == null)
                                 -
                             @else
-                                @convert($futsal->harga)
+                                {{ $futsal->harga }}
                             @endif
                         </td>
                     </tr>

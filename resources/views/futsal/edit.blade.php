@@ -25,7 +25,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Harga per jam</label>
-                                <input type="text" class="form-control @error('harga') is-invalid @enderror" name="harga" value="{{ old('harga') ? old('harga') : $futsal->harga }}">
+                                <textarea class="form-control"  id="" cols="60" rows="50" name="harga" style="height: 200px">{{ old('harga') ? old('harga') : $futsal->harga }}</textarea>
                                 @error('harga')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror

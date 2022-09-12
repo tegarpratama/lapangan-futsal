@@ -30,13 +30,17 @@ class FutsalController extends Controller
     public function show($id)
     {
         $futsal = LapanganFutsal::with('gambar')->where('id', $id)->first();
+        $gambar = DB::table('gambar_lapangan_futsal')->where('lapangan_futsal_id', $id)->get();
         $operasional = explode(PHP_EOL, $futsal->jam_operasional);
         $fasilitas = explode(PHP_EOL, $futsal->fasilitas);
+        $harga = explode(PHP_EOL, $futsal->harga);
 
         return view('futsal.show', [
             'futsal' => $futsal,
             'jam' => $operasional,
-            'fasilitas' => $fasilitas
+            'fasilitas' => $fasilitas,
+            'harga' => $harga,
+            'gambar' => $gambar
         ]);
     }
 
@@ -55,6 +59,8 @@ class FutsalController extends Controller
         $futsal = DB::table('lapangan_futsal')->where('id', $id)->first();
 
         if ($request->hasFile('gambar')) {
+            DB::table('gambar_lapangan_futsal')->where('lapangan_futsal_id', $id)->delete();
+
             $i = 1;
             foreach ($request->file('gambar') as $imagefile) {
                 $extension =  $imagefile->extension();

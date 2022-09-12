@@ -48,9 +48,9 @@
                 let char
                 if (i == 0) {
                     char = 'a'
-                } else if (i == 2) {
+                } else if (i == 1) {
                     char = 'b'
-                } else if (i == 3) {
+                } else if (i == 2) {
                     char = 'c'
                 } else {
                     char = 'd'

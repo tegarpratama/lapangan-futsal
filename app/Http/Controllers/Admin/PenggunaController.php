@@ -22,7 +22,19 @@ class PenggunaController extends Controller
     public function show($id)
     {
         $user = User::find($id)->first();
-        $futsal  = LokasiUser::with('futsal')->where('user_id', $id)->get();
+
+        $futsal = DB::table('lapangan_futsal')
+            ->join('lokasi_user', 'lapangan_futsal.id', 'lokasi_user.lapangan_futsal_id')
+            ->select('lapangan_futsal.latitude', 'lapangan_futsal.longitude', 'lapangan_futsal.nama', 'lapangan_futsal.id','lapangan_futsal.alamat')
+            ->where('lokasi_user.user_id', $id)
+            ->get();
+
+        $i = 0;
+        foreach($futsal as $f) {
+            $gambar = DB::table('gambar_lapangan_futsal')->select('gambar')->where('lapangan_futsal_id', $f->id)->get();
+            $futsal[$i]->gambar = $gambar;
+            $i++;
+        }
 
         return view('pengguna.show', [
             'futsal' => $futsal,

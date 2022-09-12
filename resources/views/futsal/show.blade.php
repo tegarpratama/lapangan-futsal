@@ -39,7 +39,12 @@
                             </tr>
                             <tr>
                                 <th>Harga Sewa (per jam)</th>
-                                <td class="text-left">@convert($futsal->harga)</td>
+                                <td class="text-left">
+                                    @foreach ($harga as $f)
+                                        {{ $f }}
+                                        <br>
+                                    @endforeach
+                                </td>
                             </tr>
                             <tr>
                                 <th>Jam Operasional</th>
@@ -66,9 +71,9 @@
                             <tr>
                                 <th>Foto</th>
                                 <td style="width: 80%">
-                                    @foreach ($futsal->gambar as $g)
-                                        <img src="{{ url('storage/' . $g->gambar) }}" class="img-fluid">
-                                    @endforeach
+                                    @for ($i = 0; $i < count($gambar); $i++)
+                                        <img src="{{ url('storage/' . $gambar[$i]->gambar) }}" class="img-fluid mb-1">
+                                    @endfor
                                 </td>
                             </tr>
                         </table>

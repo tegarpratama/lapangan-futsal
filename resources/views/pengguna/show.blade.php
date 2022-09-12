@@ -40,12 +40,16 @@
                         @endif
 
                         <div class="col-4">
-                            <div class="card" style="width: 20rem;">
-                                <img src="{{ url('storage/' . $f->futsal->gambar) }}" class="card-img-top">
+                            <div class="card">
+                                @if (count($f->gambar) > 0)
+                                <img src="{{ url('storage/' . $f->gambar[0]->gambar) }}" class="image-card">
+                                @else
+                                <img src="{{ url('/assets/front/img/sample.jpg') }}" class="image-card">
+                                @endif
                                 <div class="card-body">
-                                <h5 class="card-title">({{ $char }}) {{ $f->futsal->nama }}</h5>
-                                <p class="card-text">{{ $f->futsal->alamat }}</p>
-                                <a href={{ route('admin.futsal.show', $f->futsal->id) }} class="btn btn-primary btn-sm">Detail</a>
+                                <h5 class="card-title">({{ $char }}) {{ $f->nama }}</h5>
+                                <p class="card-text">{{ $f->alamat }}</p>
+                                <a href={{ route('user.detail', $f->id) }} class="btn btn-success btn-sm">Detail</a>
                                 </div>
                             </div>
                         </div>
