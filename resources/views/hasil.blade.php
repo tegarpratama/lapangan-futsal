@@ -74,7 +74,8 @@
 @endsection
 
 @push('script')
-    <script script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcm5lRoLzy7GM3H-wG645UzK2uG7Zbnlw&callback=initMap" type="text/javascript"></script>
+    <script script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCNOKmd3VrxQaaPqxgNuGgfuZ1Idjryg&callback=initMap" type="text/javascript"></script>
+    <!-- <script script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1MgLuZuyqR_OGY3ob3M52N46TDBRI_9k&callback=initMap" type="text/javascript"></script> -->
     <script>
         let map;
         let iconFutsal;

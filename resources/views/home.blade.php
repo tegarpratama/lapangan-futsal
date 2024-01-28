@@ -36,7 +36,7 @@
 @endsection
 
 @push('script')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1MgLuZuyqR_OGY3ob3M52N46TDBRI_9k&libraries=places&callback=initialize" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCNOKmd3VrxQaaPqxgNuGgfuZ1Idjryg&libraries=places&callback=initialize" async defer></script>
     <script>
         $.ajaxSetup({
             headers: {

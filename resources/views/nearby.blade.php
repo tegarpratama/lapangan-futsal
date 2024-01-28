@@ -22,7 +22,7 @@
 @endsection
 
 @push('script')
-    <script script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcm5lRoLzy7GM3H-wG645UzK2uG7Zbnlw&callback=initMap" type="text/javascript"></script>
+    <script script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCNOKmd3VrxQaaPqxgNuGgfuZ1Idjryg&callback=initMap" type="text/javascript"></script>
     <script>
         let map;
         let iconFutsal;
@@ -56,7 +56,7 @@
                     char = 'd'
                 }
 
-                iconFutsal = `http://127.0.0.1:8000/assets/front/img/${char}.png`
+                iconFutsal = `http://127.0.0.1:8080/assets/front/img/${char}.png`
                 // iconFutsal = `http://lapangan-futsal.me/assets/front/img/${char}.png`
                 new google.maps.Marker({
                     position: { lat: +data[i].lat, lng: +data[i].lng },

@@ -35,7 +35,7 @@ class HomeController extends Controller
         $data = $client->get(
             'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' .
             $loc->latitude . '%2C' . $loc->longitude .
-            '&radius=1500&keyword=futsal&key=AIzaSyA1MgLuZuyqR_OGY3ob3M52N46TDBRI_9k'
+            '&radius=1500&keyword=futsal&key=AIzaSyCBCNOKmd3VrxQaaPqxgNuGgfuZ1Idjryg'
         );
         $result = json_decode($data->getBody());
 
